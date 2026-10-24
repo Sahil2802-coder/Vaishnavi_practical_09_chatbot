@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background-color: #090A0F;
+  background-image: radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.05) 0%, transparent 60%);
+  color: #F8FAFC;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Audio Waveform Animation for Voice Dictation */
+@keyframes waveBar {
+  0%, 100% { height: 4px; }
+  50% { height: 18px; }
+}
+
+.waveform-bar-1 { animation: waveBar 0.9s ease-in-out infinite 0.1s; }
+.waveform-bar-2 { animation: waveBar 0.8s ease-in-out infinite 0.25s; }
+.waveform-bar-3 { animation: waveBar 0.7s ease-in-out infinite 0.15s; }
+.waveform-bar-4 { animation: waveBar 0.85s ease-in-out infinite 0.3s; }
+.waveform-bar-5 { animation: waveBar 0.95s ease-in-out infinite 0.2s; }
+
+/* Shimmer Skeleton */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.06) 20%,
+    rgba(255, 255, 255, 0.12) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  animation: shimmer 1.8s infinite;
+}
+
+/* Spotlight Card Hover Effect */
+.spotlight-card {
+  position: relative;
+  background: #11131A;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spotlight-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.2), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Smooth Cinematic Response Reveal (No Sudden Pop-In) */
+@keyframes responseReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.992);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.animate-response-reveal {
+  animation: responseReveal 0.46s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Staggered Sub-element Fade-Slide */
+@keyframes subReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-sub-reveal {
+  animation: subReveal 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Breathing Aura for Soothing Loading State */
+@keyframes breathingAura {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.35;
+    filter: blur(35px);
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.7;
+    filter: blur(55px);
+  }
+}
+
+.animate-breathing-aura {
+  animation: breathingAura 4.5s ease-in-out infinite;
+}
+
+/* Organic Sine Wave / Pulse Rings */
+@keyframes neuralRing {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.15;
+  }
+  100% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+}
+
+.animate-neural-ring-1 {
+  animation: neuralRing 3.2s ease-in-out infinite;
+}
+
+.animate-neural-ring-2 {
+  animation: neuralRing 3.2s ease-in-out infinite 0.75s;
+}
+
+.animate-neural-ring-3 {
+  animation: neuralRing 3.2s ease-in-out infinite 1.5s;
+}
+
+/* Fluid Gradient Flow for Shimmer & Borders */
+@keyframes fluidGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-fluid-gradient {
+  background-size: 200% 200%;
+  animation: fluidGradient 6s ease infinite;
+}
+
+/* Calm Light Beam Sweep */
+@keyframes beamSweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(250%); }
+}
+
+.animate-beam-sweep {
+  animation: beamSweep 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
