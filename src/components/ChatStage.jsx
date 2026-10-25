@@ -267,9 +267,10 @@ export default function ChatStage({
   return (
     <div
       ref={scrollContainerRef}
-      className="flex-1 overflow-y-auto px-4 sm:px-8 pt-6 pb-36 max-w-[880px] w-full mx-auto scroll-smooth"
+      className="flex-1 overflow-y-auto w-full h-full scroll-smooth"
     >
-      {/* Zero-State Canvas */}
+      <div className="max-w-[880px] w-full mx-auto px-4 sm:px-8 pt-6 pb-36">
+        {/* Zero-State Canvas */}
       {messages.length === 0 ? (
         <div className="min-h-[70vh] flex flex-col justify-center items-center text-center">
           {/* Frameless Floating Kinetic Nexus Gyroscope (Zero card, zero tab, purely floating) */}
@@ -754,6 +755,7 @@ export default function ChatStage({
           )}
         </div>
       )}
+      </div>
     </div>
   );
 }
