@@ -30,7 +30,7 @@ import {
 import MermaidDiagram from './MermaidDiagram';
 import { LAB_TEST_CASES } from '../services/geminiService';
 
-// Frameless Floating Kinetic Nexus Gyroscope (Zero card, zero tab, purely floating)
+// Perfectly Symmetric & Realistic Quantum Gyroscope (Zero card, zero tab, pure floating physics)
 function FloatingKineticNexus() {
   const [pulse, setPulse] = useState(0);
 
@@ -38,7 +38,7 @@ function FloatingKineticNexus() {
     <div
       onClick={() => setPulse((p) => p + 1)}
       className="group relative mb-7 cursor-pointer select-none flex items-center justify-center transition-transform duration-500 hover:scale-110 active:scale-95"
-      title="Nexus Kinetic AI Core — Click to pulse"
+      title="Nexus Quantum AI Gyroscope — Click to pulse"
     >
       {/* Click Shockwave Waveform Ring */}
       {pulse > 0 && (
@@ -48,10 +48,10 @@ function FloatingKineticNexus() {
         />
       )}
 
-      {/* Floating Ethereal Radial Ambient Glow (Directly on canvas, no box) */}
-      <div className="absolute w-28 h-28 rounded-full bg-gradient-to-r from-indigo-500/25 via-cyan-500/20 to-purple-500/25 blur-2xl opacity-60 group-hover:opacity-100 group-hover:scale-125 transition-all duration-700 pointer-events-none" />
+      {/* Floating Ethereal Radial Ambient Glow (Directly on canvas) */}
+      <div className="absolute w-32 h-32 rounded-full bg-gradient-to-r from-indigo-500/20 via-cyan-500/15 to-purple-500/20 blur-2xl opacity-60 group-hover:opacity-100 group-hover:scale-125 transition-all duration-700 pointer-events-none" />
 
-      {/* Pure Floating Kinetic Gyroscope SVG (No tab, no container border) */}
+      {/* Pure Floating Kinetic Gyroscope SVG */}
       <div className="relative w-20 h-20 flex items-center justify-center animate-gyro-float">
         <svg
           className="w-20 h-20 overflow-visible"
@@ -60,103 +60,153 @@ function FloatingKineticNexus() {
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            {/* Vivid Linear Gradients */}
-            <linearGradient id="orbitGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            {/* Symmetrical Harmonic Gradients */}
+            <linearGradient id="ringGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#818CF8" />
               <stop offset="50%" stopColor="#6366F1" />
               <stop offset="100%" stopColor="#38BDF8" />
             </linearGradient>
 
-            <linearGradient id="orbitGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+            <linearGradient id="ringGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#38BDF8" />
+              <stop offset="50%" stopColor="#06B6D4" />
+              <stop offset="100%" stopColor="#818CF8" />
+            </linearGradient>
+
+            <linearGradient id="ringGrad3" x1="0%" y1="100%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#C084FC" />
               <stop offset="50%" stopColor="#A855F7" />
               <stop offset="100%" stopColor="#6366F1" />
             </linearGradient>
 
-            <linearGradient id="orbitGrad3" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#22D3EE" />
-              <stop offset="50%" stopColor="#06B6D4" />
-              <stop offset="100%" stopColor="#818CF8" />
-            </linearGradient>
-
-            <radialGradient id="nucleusGrad" cx="50%" cy="50%" r="50%">
+            {/* Realistic Volumetric 3D Nucleus Radial Shading */}
+            <radialGradient id="realisticNucleus" cx="35%" cy="35%" r="65%">
               <stop offset="0%" stopColor="#FFFFFF" />
-              <stop offset="40%" stopColor="#67E8F9" />
-              <stop offset="70%" stopColor="#6366F1" />
-              <stop offset="100%" stopColor="#4338CA" />
+              <stop offset="25%" stopColor="#67E8F9" />
+              <stop offset="60%" stopColor="#6366F1" />
+              <stop offset="100%" stopColor="#312E81" />
+            </radialGradient>
+
+            <radialGradient id="coronaAura" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#67E8F9" stopOpacity="0.8" />
+              <stop offset="50%" stopColor="#6366F1" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#6366F1" stopOpacity="0" />
             </radialGradient>
           </defs>
 
-          {/* Gyro Orbit Ring 1: Tilted Electric Indigo / Cyan Ellipse */}
-          <g className="origin-center animate-gyro-ring-1">
+          {/* ORBIT 1: Tilted -60° (Left Inclination) */}
+          <g transform="rotate(-60 40 40)">
+            {/* Guide Track */}
+            <ellipse cx="40" cy="40" rx="34" ry="13" stroke="url(#ringGrad1)" strokeWidth="1" strokeOpacity="0.25" />
+            {/* Luminous Sweep Stroke */}
             <ellipse
               cx="40"
               cy="40"
               rx="34"
-              ry="14"
-              stroke="url(#orbitGrad1)"
-              strokeWidth="1.6"
-              strokeDasharray="18 6 4 6"
+              ry="13"
+              stroke="url(#ringGrad1)"
+              strokeWidth="1.8"
+              strokeDasharray="42 113"
               strokeLinecap="round"
-              transform="rotate(35 40 40)"
-              className="opacity-80 group-hover:opacity-100 transition-opacity"
+              className="animate-orbit-dash-1"
             />
-            {/* Orbiting Photon Bead */}
-            <g transform="rotate(35 40 40)">
-              <circle cx="74" cy="40" r="2.4" fill="#38BDF8" className="filter drop-shadow-[0_0_6px_#38BDF8]" />
-              <circle cx="6" cy="40" r="1.6" fill="#818CF8" opacity="0.8" />
+            {/* Realistically Orbiting Photon Particle */}
+            <g>
+              <circle r="2.4" fill="#38BDF8" className="filter drop-shadow-[0_0_6px_#38BDF8]">
+                <animateMotion
+                  dur="3.4s"
+                  repeatCount="indefinite"
+                  path="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
+                />
+              </circle>
+              <circle r="1" fill="#FFFFFF">
+                <animateMotion
+                  dur="3.4s"
+                  repeatCount="indefinite"
+                  path="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
+                />
+              </circle>
             </g>
           </g>
 
-          {/* Gyro Orbit Ring 2: Counter-Tilted Ultraviolet / Indigo Ellipse */}
-          <g className="origin-center animate-gyro-ring-2">
+          {/* ORBIT 2: Tilted 0° (Equatorial Horizontal Axis) */}
+          <g transform="rotate(0 40 40)">
+            {/* Guide Track */}
+            <ellipse cx="40" cy="40" rx="34" ry="13" stroke="url(#ringGrad2)" strokeWidth="1" strokeOpacity="0.25" />
+            {/* Luminous Sweep Stroke */}
             <ellipse
               cx="40"
               cy="40"
               rx="34"
-              ry="14"
-              stroke="url(#orbitGrad2)"
-              strokeWidth="1.6"
-              strokeDasharray="24 8 2 6"
+              ry="13"
+              stroke="url(#ringGrad2)"
+              strokeWidth="1.8"
+              strokeDasharray="42 113"
               strokeLinecap="round"
-              transform="rotate(-35 40 40)"
-              className="opacity-80 group-hover:opacity-100 transition-opacity"
+              className="animate-orbit-dash-2"
             />
-            {/* Orbiting Photon Bead */}
-            <g transform="rotate(-35 40 40)">
-              <circle cx="74" cy="40" r="2.2" fill="#C084FC" className="filter drop-shadow-[0_0_6px_#C084FC]" />
-              <circle cx="6" cy="40" r="1.5" fill="#6366F1" opacity="0.8" />
+            {/* Realistically Orbiting Photon Particle */}
+            <g>
+              <circle r="2.4" fill="#06B6D4" className="filter drop-shadow-[0_0_6px_#06B6D4]">
+                <animateMotion
+                  dur="3.8s"
+                  repeatCount="indefinite"
+                  path="M 74,40 a 34,13 0 1,0 -68,0 a 34,13 0 1,0 68,0"
+                />
+              </circle>
+              <circle r="1" fill="#FFFFFF">
+                <animateMotion
+                  dur="3.8s"
+                  repeatCount="indefinite"
+                  path="M 74,40 a 34,13 0 1,0 -68,0 a 34,13 0 1,0 68,0"
+                />
+              </circle>
             </g>
           </g>
 
-          {/* Gyro Orbit Ring 3: Vertical Precession Cyan Ellipse */}
-          <g className="origin-center animate-gyro-ring-3">
+          {/* ORBIT 3: Tilted +60° (Right Inclination) */}
+          <g transform="rotate(60 40 40)">
+            {/* Guide Track */}
+            <ellipse cx="40" cy="40" rx="34" ry="13" stroke="url(#ringGrad3)" strokeWidth="1" strokeOpacity="0.25" />
+            {/* Luminous Sweep Stroke */}
             <ellipse
               cx="40"
               cy="40"
-              rx="32"
-              ry="16"
-              stroke="url(#orbitGrad3)"
-              strokeWidth="1.3"
-              strokeDasharray="6 8"
+              rx="34"
+              ry="13"
+              stroke="url(#ringGrad3)"
+              strokeWidth="1.8"
+              strokeDasharray="42 113"
               strokeLinecap="round"
-              transform="rotate(85 40 40)"
-              className="opacity-60 group-hover:opacity-90 transition-opacity"
+              className="animate-orbit-dash-3"
             />
-            {/* Orbiting Photon Bead */}
-            <g transform="rotate(85 40 40)">
-              <circle cx="72" cy="40" r="2" fill="#22D3EE" className="filter drop-shadow-[0_0_6px_#22D3EE]" />
+            {/* Realistically Orbiting Photon Particle */}
+            <g>
+              <circle r="2.4" fill="#C084FC" className="filter drop-shadow-[0_0_6px_#C084FC]">
+                <animateMotion
+                  dur="4.2s"
+                  repeatCount="indefinite"
+                  path="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
+                />
+              </circle>
+              <circle r="1" fill="#FFFFFF">
+                <animateMotion
+                  dur="4.2s"
+                  repeatCount="indefinite"
+                  path="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
+                />
+              </circle>
             </g>
           </g>
 
-          {/* Floating Central Nucleus Singularity (Animated Breathing Core) */}
+          {/* Central Volumetric 3D Quantum Nucleus */}
           <g className="origin-center animate-nucleus-pulse">
-            {/* Radiant Outer Nucleus Aura */}
-            <circle cx="40" cy="40" r="10" fill="url(#orbitGrad1)" opacity="0.25" className="blur-[2px]" />
-            {/* Spherical Nucleus Body */}
-            <circle cx="40" cy="40" r="6" fill="url(#nucleusGrad)" />
-            {/* Pure White Singularity Center */}
-            <circle cx="40" cy="40" r="2" fill="#FFFFFF" />
+            {/* Atmospheric Corona Haze */}
+            <circle cx="40" cy="40" r="13" fill="url(#coronaAura)" />
+            {/* Realistic 3D Sphere */}
+            <circle cx="40" cy="40" r="6.5" fill="url(#realisticNucleus)" />
+            {/* Specular Glint */}
+            <circle cx="38" cy="38" r="1.5" fill="#FFFFFF" opacity="0.9" />
           </g>
         </svg>
       </div>
