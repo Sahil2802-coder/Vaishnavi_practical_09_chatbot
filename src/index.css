@@ -188,3 +188,76 @@ body {
   animation: beamSweep 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
+/* Frameless Floating Kinetic Gyroscope Keyframes */
+@keyframes gyroFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.02);
+  }
+}
+
+@keyframes gyroSpin1 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes gyroSpin2 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+@keyframes gyroSpin3 {
+  0% { transform: rotate(45deg) scaleX(1); }
+  50% { transform: rotate(225deg) scaleX(0.7); }
+  100% { transform: rotate(405deg) scaleX(1); }
+}
+
+@keyframes nucleusPulse {
+  0%, 100% {
+    transform: scale(0.92);
+    opacity: 0.9;
+    filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.7));
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+    filter: drop-shadow(0 0 16px rgba(6, 182, 212, 0.9));
+  }
+}
+
+.animate-gyro-float {
+  animation: gyroFloat 4.2s ease-in-out infinite;
+}
+
+.animate-gyro-ring-1 {
+  animation: gyroSpin1 18s linear infinite;
+}
+
+.animate-gyro-ring-2 {
+  animation: gyroSpin2 13s linear infinite;
+}
+
+.animate-gyro-ring-3 {
+  animation: gyroSpin3 16s ease-in-out infinite;
+}
+
+.animate-nucleus-pulse {
+  animation: nucleusPulse 3s ease-in-out infinite;
+}
+
+.group:hover .animate-gyro-ring-1 {
+  animation-duration: 6s;
+}
+
+.group:hover .animate-gyro-ring-2 {
+  animation-duration: 4.5s;
+}
+
+.group:hover .animate-gyro-ring-3 {
+  animation-duration: 5.5s;
+}
+
+
+

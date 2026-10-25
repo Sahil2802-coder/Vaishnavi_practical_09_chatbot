@@ -30,6 +30,140 @@ import {
 import MermaidDiagram from './MermaidDiagram';
 import { LAB_TEST_CASES } from '../services/geminiService';
 
+// Frameless Floating Kinetic Nexus Gyroscope (Zero card, zero tab, purely floating)
+function FloatingKineticNexus() {
+  const [pulse, setPulse] = useState(0);
+
+  return (
+    <div
+      onClick={() => setPulse((p) => p + 1)}
+      className="group relative mb-7 cursor-pointer select-none flex items-center justify-center transition-transform duration-500 hover:scale-110 active:scale-95"
+      title="Nexus Kinetic AI Core — Click to pulse"
+    >
+      {/* Click Shockwave Waveform Ring */}
+      {pulse > 0 && (
+        <span
+          key={pulse}
+          className="absolute w-24 h-24 rounded-full border border-indigo-400/70 animate-ping pointer-events-none"
+        />
+      )}
+
+      {/* Floating Ethereal Radial Ambient Glow (Directly on canvas, no box) */}
+      <div className="absolute w-28 h-28 rounded-full bg-gradient-to-r from-indigo-500/25 via-cyan-500/20 to-purple-500/25 blur-2xl opacity-60 group-hover:opacity-100 group-hover:scale-125 transition-all duration-700 pointer-events-none" />
+
+      {/* Pure Floating Kinetic Gyroscope SVG (No tab, no container border) */}
+      <div className="relative w-20 h-20 flex items-center justify-center animate-gyro-float">
+        <svg
+          className="w-20 h-20 overflow-visible"
+          viewBox="0 0 80 80"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            {/* Vivid Linear Gradients */}
+            <linearGradient id="orbitGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#818CF8" />
+              <stop offset="50%" stopColor="#6366F1" />
+              <stop offset="100%" stopColor="#38BDF8" />
+            </linearGradient>
+
+            <linearGradient id="orbitGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#C084FC" />
+              <stop offset="50%" stopColor="#A855F7" />
+              <stop offset="100%" stopColor="#6366F1" />
+            </linearGradient>
+
+            <linearGradient id="orbitGrad3" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#22D3EE" />
+              <stop offset="50%" stopColor="#06B6D4" />
+              <stop offset="100%" stopColor="#818CF8" />
+            </linearGradient>
+
+            <radialGradient id="nucleusGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="40%" stopColor="#67E8F9" />
+              <stop offset="70%" stopColor="#6366F1" />
+              <stop offset="100%" stopColor="#4338CA" />
+            </radialGradient>
+          </defs>
+
+          {/* Gyro Orbit Ring 1: Tilted Electric Indigo / Cyan Ellipse */}
+          <g className="origin-center animate-gyro-ring-1">
+            <ellipse
+              cx="40"
+              cy="40"
+              rx="34"
+              ry="14"
+              stroke="url(#orbitGrad1)"
+              strokeWidth="1.6"
+              strokeDasharray="18 6 4 6"
+              strokeLinecap="round"
+              transform="rotate(35 40 40)"
+              className="opacity-80 group-hover:opacity-100 transition-opacity"
+            />
+            {/* Orbiting Photon Bead */}
+            <g transform="rotate(35 40 40)">
+              <circle cx="74" cy="40" r="2.4" fill="#38BDF8" className="filter drop-shadow-[0_0_6px_#38BDF8]" />
+              <circle cx="6" cy="40" r="1.6" fill="#818CF8" opacity="0.8" />
+            </g>
+          </g>
+
+          {/* Gyro Orbit Ring 2: Counter-Tilted Ultraviolet / Indigo Ellipse */}
+          <g className="origin-center animate-gyro-ring-2">
+            <ellipse
+              cx="40"
+              cy="40"
+              rx="34"
+              ry="14"
+              stroke="url(#orbitGrad2)"
+              strokeWidth="1.6"
+              strokeDasharray="24 8 2 6"
+              strokeLinecap="round"
+              transform="rotate(-35 40 40)"
+              className="opacity-80 group-hover:opacity-100 transition-opacity"
+            />
+            {/* Orbiting Photon Bead */}
+            <g transform="rotate(-35 40 40)">
+              <circle cx="74" cy="40" r="2.2" fill="#C084FC" className="filter drop-shadow-[0_0_6px_#C084FC]" />
+              <circle cx="6" cy="40" r="1.5" fill="#6366F1" opacity="0.8" />
+            </g>
+          </g>
+
+          {/* Gyro Orbit Ring 3: Vertical Precession Cyan Ellipse */}
+          <g className="origin-center animate-gyro-ring-3">
+            <ellipse
+              cx="40"
+              cy="40"
+              rx="32"
+              ry="16"
+              stroke="url(#orbitGrad3)"
+              strokeWidth="1.3"
+              strokeDasharray="6 8"
+              strokeLinecap="round"
+              transform="rotate(85 40 40)"
+              className="opacity-60 group-hover:opacity-90 transition-opacity"
+            />
+            {/* Orbiting Photon Bead */}
+            <g transform="rotate(85 40 40)">
+              <circle cx="72" cy="40" r="2" fill="#22D3EE" className="filter drop-shadow-[0_0_6px_#22D3EE]" />
+            </g>
+          </g>
+
+          {/* Floating Central Nucleus Singularity (Animated Breathing Core) */}
+          <g className="origin-center animate-nucleus-pulse">
+            {/* Radiant Outer Nucleus Aura */}
+            <circle cx="40" cy="40" r="10" fill="url(#orbitGrad1)" opacity="0.25" className="blur-[2px]" />
+            {/* Spherical Nucleus Body */}
+            <circle cx="40" cy="40" r="6" fill="url(#nucleusGrad)" />
+            {/* Pure White Singularity Center */}
+            <circle cx="40" cy="40" r="2" fill="#FFFFFF" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
 export default function ChatStage({
   messages,
   isLoading,
@@ -138,13 +272,8 @@ export default function ChatStage({
       {/* Zero-State Canvas */}
       {messages.length === 0 ? (
         <div className="min-h-[70vh] flex flex-col justify-center items-center text-center">
-          {/* Centered Geometric SVG Emblem with Breathing Glow */}
-          <div className="relative mb-6">
-            <div className="absolute inset-0 rounded-2xl bg-indigo-500/20 blur-xl animate-pulse" />
-            <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-b from-white/[0.1] to-white/[0.02] border border-white/[0.12] flex items-center justify-center shadow-2xl">
-              <Sparkles className="w-8 h-8 text-indigo-400" strokeWidth={1.5} />
-            </div>
-          </div>
+          {/* Frameless Floating Kinetic Nexus Gyroscope (Zero card, zero tab, purely floating) */}
+          <FloatingKineticNexus />
 
           <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white mb-2">
             Ready to engineer your next query.
