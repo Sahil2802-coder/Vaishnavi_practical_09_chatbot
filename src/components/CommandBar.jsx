@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {
-  Sparkles,
+  Compass,
   Cpu,
   FileText,
   BarChart3,
@@ -188,7 +188,7 @@ export default function CommandBar({
   };
 
   const modes = [
-    { id: 'auto', label: 'Auto-Detect', icon: Sparkles },
+    { id: 'auto', label: 'Auto-Detect', icon: Compass },
     { id: 'qa', label: 'QA', icon: Cpu },
     { id: 'summarize', label: 'Summarize', icon: FileText },
     { id: 'classify', label: 'Classify', icon: BarChart3 },

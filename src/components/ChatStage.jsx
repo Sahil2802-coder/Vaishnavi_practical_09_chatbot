@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
-  Sparkles,
   ArrowUpRight,
   Code2,
   Copy,
@@ -30,7 +29,209 @@ import {
 import MermaidDiagram from './MermaidDiagram';
 import { LAB_TEST_CASES } from '../services/geminiService';
 
-// Perfectly Symmetric & Realistic Quantum Gyroscope (Zero card, zero tab, pure floating physics)
+// Unified Mathematically Symmetric Quantum Gyroscope Nexus
+export function QuantumGyroscopeNexus({
+  idPrefix = 'gyro',
+  size = 'w-20 h-20',
+  dur1 = '3.4s',
+  dur2 = '3.8s',
+  dur3 = '4.2s',
+  ambientGlow = false,
+  className = '',
+}) {
+  return (
+    <div className={`relative ${size} flex items-center justify-center shrink-0 ${className}`}>
+      {ambientGlow && (
+        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/20 via-cyan-500/15 to-purple-500/20 blur-xl opacity-75 pointer-events-none" />
+      )}
+      <svg
+        className="w-full h-full overflow-visible"
+        viewBox="0 0 80 80"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          {/* Symmetrical Harmonic Gradients */}
+          <linearGradient id={`${idPrefix}_ringGrad1`} x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#818CF8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#38BDF8" />
+          </linearGradient>
+
+          <linearGradient id={`${idPrefix}_ringGrad2`} x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#38BDF8" />
+            <stop offset="50%" stopColor="#06B6D4" />
+            <stop offset="100%" stopColor="#818CF8" />
+          </linearGradient>
+
+          <linearGradient id={`${idPrefix}_ringGrad3`} x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#C084FC" />
+            <stop offset="50%" stopColor="#A855F7" />
+            <stop offset="100%" stopColor="#6366F1" />
+          </linearGradient>
+
+          {/* Realistic Volumetric 3D Nucleus Radial Shading */}
+          <radialGradient id={`${idPrefix}_realisticNucleus`} cx="35%" cy="35%" r="65%">
+            <stop offset="0%" stopColor="#FFFFFF" />
+            <stop offset="25%" stopColor="#67E8F9" />
+            <stop offset="60%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#312E81" />
+          </radialGradient>
+
+          <radialGradient id={`${idPrefix}_coronaAura`} cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#67E8F9" stopOpacity="0.8" />
+            <stop offset="50%" stopColor="#6366F1" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="#6366F1" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+
+        {/* ORBIT 1: Tilted -60° (Left Inclination) */}
+        <g transform="rotate(-60 40 40)">
+          {/* Guide Track */}
+          <path
+            id={`${idPrefix}_orbitTrack1`}
+            d="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
+            pathLength="100"
+            stroke={`url(#${idPrefix}_ringGrad1)`}
+            strokeWidth="1"
+            strokeOpacity="0.25"
+            fill="none"
+          />
+          {/* Luminous Roaming Line trailing behind the head dot */}
+          <path
+            d="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
+            pathLength="100"
+            stroke={`url(#${idPrefix}_ringGrad1)`}
+            strokeWidth="2"
+            strokeDasharray="28 72"
+            strokeLinecap="round"
+            fill="none"
+          >
+            <animate
+              attributeName="stroke-dashoffset"
+              from="28"
+              to="-72"
+              dur={dur1}
+              repeatCount="indefinite"
+            />
+          </path>
+          {/* Leading Photon Dot at Front Head */}
+          <g>
+            <circle r="2.8" fill="#38BDF8" className="filter drop-shadow-[0_0_8px_#38BDF8]">
+              <animateMotion dur={dur1} repeatCount="indefinite">
+                <mpath href={`#${idPrefix}_orbitTrack1`} />
+              </animateMotion>
+            </circle>
+            <circle r="1.2" fill="#FFFFFF">
+              <animateMotion dur={dur1} repeatCount="indefinite">
+                <mpath href={`#${idPrefix}_orbitTrack1`} />
+              </animateMotion>
+            </circle>
+          </g>
+        </g>
+
+        {/* ORBIT 2: Tilted 0° (Equatorial Horizontal Axis) */}
+        <g transform="rotate(0 40 40)">
+          {/* Guide Track */}
+          <path
+            id={`${idPrefix}_orbitTrack2`}
+            d="M 6,40 a 34,13 0 1,1 68,0 a 34,13 0 1,1 -68,0"
+            pathLength="100"
+            stroke={`url(#${idPrefix}_ringGrad2)`}
+            strokeWidth="1"
+            strokeOpacity="0.25"
+            fill="none"
+          />
+          {/* Luminous Roaming Line trailing behind the head dot */}
+          <path
+            d="M 6,40 a 34,13 0 1,1 68,0 a 34,13 0 1,1 -68,0"
+            pathLength="100"
+            stroke={`url(#${idPrefix}_ringGrad2)`}
+            strokeWidth="2"
+            strokeDasharray="28 72"
+            strokeLinecap="round"
+            fill="none"
+          >
+            <animate
+              attributeName="stroke-dashoffset"
+              from="28"
+              to="-72"
+              dur={dur2}
+              repeatCount="indefinite"
+            />
+          </path>
+          {/* Leading Photon Dot at Front Head */}
+          <g>
+            <circle r="2.8" fill="#06B6D4" className="filter drop-shadow-[0_0_8px_#06B6D4]">
+              <animateMotion dur={dur2} repeatCount="indefinite">
+                <mpath href={`#${idPrefix}_orbitTrack2`} />
+              </animateMotion>
+            </circle>
+            <circle r="1.2" fill="#FFFFFF">
+              <animateMotion dur={dur2} repeatCount="indefinite">
+                <mpath href={`#${idPrefix}_orbitTrack2`} />
+              </animateMotion>
+            </circle>
+          </g>
+        </g>
+
+        {/* ORBIT 3: Tilted +60° (Right Inclination) */}
+        <g transform="rotate(60 40 40)">
+          {/* Guide Track */}
+          <path
+            id={`${idPrefix}_orbitTrack3`}
+            d="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
+            pathLength="100"
+            stroke={`url(#${idPrefix}_ringGrad3)`}
+            strokeWidth="1"
+            strokeOpacity="0.25"
+            fill="none"
+          />
+          {/* Luminous Roaming Line trailing behind the head dot */}
+          <path
+            d="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
+            pathLength="100"
+            stroke={`url(#${idPrefix}_ringGrad3)`}
+            strokeWidth="2"
+            strokeDasharray="28 72"
+            strokeLinecap="round"
+            fill="none"
+          >
+            <animate
+              attributeName="stroke-dashoffset"
+              from="28"
+              to="-72"
+              dur={dur3}
+              repeatCount="indefinite"
+            />
+          </path>
+          {/* Leading Photon Dot at Front Head */}
+          <g>
+            <circle r="2.8" fill="#C084FC" className="filter drop-shadow-[0_0_8px_#C084FC]">
+              <animateMotion dur={dur3} repeatCount="indefinite">
+                <mpath href={`#${idPrefix}_orbitTrack3`} />
+              </animateMotion>
+            </circle>
+            <circle r="1.2" fill="#FFFFFF">
+              <animateMotion dur={dur3} repeatCount="indefinite">
+                <mpath href={`#${idPrefix}_orbitTrack3`} />
+              </animateMotion>
+            </circle>
+          </g>
+        </g>
+
+        {/* Central Volumetric 3D Quantum Nucleus */}
+        <g className="origin-center animate-nucleus-pulse">
+          <circle cx="40" cy="40" r="13" fill={`url(#${idPrefix}_coronaAura)`} />
+          <circle cx="40" cy="40" r="6.5" fill={`url(#${idPrefix}_realisticNucleus)`} />
+          <circle cx="38" cy="38" r="1.5" fill="#FFFFFF" opacity="0.9" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+// Hero Floating Quantum Gyroscope (Frameless, zero card, interactive physics)
 function FloatingKineticNexus() {
   const [pulse, setPulse] = useState(0);
 
@@ -52,194 +253,14 @@ function FloatingKineticNexus() {
       <div className="absolute w-32 h-32 rounded-full bg-gradient-to-r from-indigo-500/20 via-cyan-500/15 to-purple-500/20 blur-2xl opacity-60 group-hover:opacity-100 group-hover:scale-125 transition-all duration-700 pointer-events-none" />
 
       {/* Pure Floating Kinetic Gyroscope SVG */}
-      <div className="relative w-20 h-20 flex items-center justify-center animate-gyro-float">
-        <svg
-          className="w-20 h-20 overflow-visible"
-          viewBox="0 0 80 80"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            {/* Symmetrical Harmonic Gradients */}
-            <linearGradient id="ringGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#818CF8" />
-              <stop offset="50%" stopColor="#6366F1" />
-              <stop offset="100%" stopColor="#38BDF8" />
-            </linearGradient>
-
-            <linearGradient id="ringGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#38BDF8" />
-              <stop offset="50%" stopColor="#06B6D4" />
-              <stop offset="100%" stopColor="#818CF8" />
-            </linearGradient>
-
-            <linearGradient id="ringGrad3" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#C084FC" />
-              <stop offset="50%" stopColor="#A855F7" />
-              <stop offset="100%" stopColor="#6366F1" />
-            </linearGradient>
-
-            {/* Realistic Volumetric 3D Nucleus Radial Shading */}
-            <radialGradient id="realisticNucleus" cx="35%" cy="35%" r="65%">
-              <stop offset="0%" stopColor="#FFFFFF" />
-              <stop offset="25%" stopColor="#67E8F9" />
-              <stop offset="60%" stopColor="#6366F1" />
-              <stop offset="100%" stopColor="#312E81" />
-            </radialGradient>
-
-            <radialGradient id="coronaAura" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#67E8F9" stopOpacity="0.8" />
-              <stop offset="50%" stopColor="#6366F1" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="#6366F1" stopOpacity="0" />
-            </radialGradient>
-          </defs>
-
-          {/* ORBIT 1: Tilted -60° (Left Inclination) */}
-          <g transform="rotate(-60 40 40)">
-            {/* Guide Track */}
-            <path
-              id="orbitTrack1"
-              d="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
-              pathLength="100"
-              stroke="url(#ringGrad1)"
-              strokeWidth="1"
-              strokeOpacity="0.25"
-              fill="none"
-            />
-            {/* Luminous Roaming Line trailing behind the head dot */}
-            <path
-              d="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
-              pathLength="100"
-              stroke="url(#ringGrad1)"
-              strokeWidth="2"
-              strokeDasharray="28 72"
-              strokeLinecap="round"
-              fill="none"
-            >
-              <animate
-                attributeName="stroke-dashoffset"
-                from="28"
-                to="-72"
-                dur="3.4s"
-                repeatCount="indefinite"
-              />
-            </path>
-            {/* Leading Photon Dot at Front Head */}
-            <g>
-              <circle r="2.8" fill="#38BDF8" className="filter drop-shadow-[0_0_8px_#38BDF8]">
-                <animateMotion dur="3.4s" repeatCount="indefinite">
-                  <mpath href="#orbitTrack1" />
-                </animateMotion>
-              </circle>
-              <circle r="1.2" fill="#FFFFFF">
-                <animateMotion dur="3.4s" repeatCount="indefinite">
-                  <mpath href="#orbitTrack1" />
-                </animateMotion>
-              </circle>
-            </g>
-          </g>
-
-          {/* ORBIT 2: Tilted 0° (Equatorial Horizontal Axis) */}
-          <g transform="rotate(0 40 40)">
-            {/* Guide Track */}
-            <path
-              id="orbitTrack2"
-              d="M 6,40 a 34,13 0 1,1 68,0 a 34,13 0 1,1 -68,0"
-              pathLength="100"
-              stroke="url(#ringGrad2)"
-              strokeWidth="1"
-              strokeOpacity="0.25"
-              fill="none"
-            />
-            {/* Luminous Roaming Line trailing behind the head dot */}
-            <path
-              d="M 6,40 a 34,13 0 1,1 68,0 a 34,13 0 1,1 -68,0"
-              pathLength="100"
-              stroke="url(#ringGrad2)"
-              strokeWidth="2"
-              strokeDasharray="28 72"
-              strokeLinecap="round"
-              fill="none"
-            >
-              <animate
-                attributeName="stroke-dashoffset"
-                from="28"
-                to="-72"
-                dur="3.8s"
-                repeatCount="indefinite"
-              />
-            </path>
-            {/* Leading Photon Dot at Front Head */}
-            <g>
-              <circle r="2.8" fill="#06B6D4" className="filter drop-shadow-[0_0_8px_#06B6D4]">
-                <animateMotion dur="3.8s" repeatCount="indefinite">
-                  <mpath href="#orbitTrack2" />
-                </animateMotion>
-              </circle>
-              <circle r="1.2" fill="#FFFFFF">
-                <animateMotion dur="3.8s" repeatCount="indefinite">
-                  <mpath href="#orbitTrack2" />
-                </animateMotion>
-              </circle>
-            </g>
-          </g>
-
-          {/* ORBIT 3: Tilted +60° (Right Inclination) */}
-          <g transform="rotate(60 40 40)">
-            {/* Guide Track */}
-            <path
-              id="orbitTrack3"
-              d="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
-              pathLength="100"
-              stroke="url(#ringGrad3)"
-              strokeWidth="1"
-              strokeOpacity="0.25"
-              fill="none"
-            />
-            {/* Luminous Roaming Line trailing behind the head dot */}
-            <path
-              d="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
-              pathLength="100"
-              stroke="url(#ringGrad3)"
-              strokeWidth="2"
-              strokeDasharray="28 72"
-              strokeLinecap="round"
-              fill="none"
-            >
-              <animate
-                attributeName="stroke-dashoffset"
-                from="28"
-                to="-72"
-                dur="4.2s"
-                repeatCount="indefinite"
-              />
-            </path>
-            {/* Leading Photon Dot at Front Head */}
-            <g>
-              <circle r="2.8" fill="#C084FC" className="filter drop-shadow-[0_0_8px_#C084FC]">
-                <animateMotion dur="4.2s" repeatCount="indefinite">
-                  <mpath href="#orbitTrack3" />
-                </animateMotion>
-              </circle>
-              <circle r="1.2" fill="#FFFFFF">
-                <animateMotion dur="4.2s" repeatCount="indefinite">
-                  <mpath href="#orbitTrack3" />
-                </animateMotion>
-              </circle>
-            </g>
-          </g>
-
-          {/* Central Volumetric 3D Quantum Nucleus */}
-          <g className="origin-center animate-nucleus-pulse">
-            {/* Atmospheric Corona Haze */}
-            <circle cx="40" cy="40" r="13" fill="url(#coronaAura)" />
-            {/* Realistic 3D Sphere */}
-            <circle cx="40" cy="40" r="6.5" fill="url(#realisticNucleus)" />
-            {/* Specular Glint */}
-            <circle cx="38" cy="38" r="1.5" fill="#FFFFFF" opacity="0.9" />
-          </g>
-        </svg>
-      </div>
+      <QuantumGyroscopeNexus
+        idPrefix="hero"
+        size="w-20 h-20"
+        dur1="3.4s"
+        dur2="3.8s"
+        dur3="4.2s"
+        className="animate-gyro-float"
+      />
     </div>
   );
 }
@@ -330,7 +351,7 @@ export default function ChatStage({
     },
     {
       tc: LAB_TEST_CASES[2],
-      icon: Sparkles,
+      icon: Activity,
       title: 'Sentiment (Positive)',
       query: 'This mobile phone has excellent battery backup and good camera.',
       meta: 'Aspect-level polarity evaluation',
@@ -768,49 +789,55 @@ export default function ChatStage({
           ));
         })()}
 
-          {/* Soothing & Mesmerizing Neural Loading State */}
+          {/* Soothing & Mesmerizing Quantum Neural Loading State */}
           {isLoading && (
-            <div className="relative w-full rounded-2xl p-6 bg-[#0E1017]/90 backdrop-blur-xl border border-indigo-500/30 space-y-4 shadow-2xl overflow-hidden animate-response-reveal">
+            <div className="relative w-full rounded-2xl p-6 sm:p-7 bg-[#0E1017]/95 backdrop-blur-2xl border border-indigo-500/30 space-y-5 shadow-2xl overflow-hidden animate-response-reveal">
               {/* Ambient Breathing Aura Behind the Card */}
-              <div className="absolute -inset-10 bg-gradient-to-r from-indigo-600/15 via-purple-600/10 to-cyan-500/10 rounded-full pointer-events-none animate-breathing-aura" />
+              <div className="absolute -inset-10 bg-gradient-to-r from-indigo-600/20 via-purple-600/15 to-cyan-500/15 rounded-full pointer-events-none animate-breathing-aura" />
 
               {/* Top Laser Beam Sweep Line */}
-              <div className="absolute top-0 left-0 right-0 h-[1.5px] overflow-hidden bg-white/[0.05]">
-                <div className="w-1/3 h-full bg-gradient-to-r from-transparent via-indigo-400 to-transparent animate-beam-sweep" />
+              <div className="absolute top-0 left-0 right-0 h-[2px] overflow-hidden bg-white/[0.05]">
+                <div className="w-1/3 h-full bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-beam-sweep" />
               </div>
 
-              {/* Header with Mesmerizing Neural Core & Elapsed Timer */}
-              <div className="relative z-10 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  {/* Mesmerizing Multi-Ring Neural Core */}
-                  <div className="relative flex items-center justify-center w-7 h-7 shrink-0">
-                    <div className="absolute inset-0 rounded-full bg-indigo-500/20 animate-neural-ring-1" />
-                    <div className="absolute -inset-1 rounded-full border border-indigo-400/30 animate-neural-ring-2" />
-                    <div className="absolute -inset-2 rounded-full border border-purple-400/20 animate-neural-ring-3" />
-                    <Sparkles className="w-3.5 h-3.5 text-indigo-300 relative z-10 animate-spin" style={{ animationDuration: '9s' }} strokeWidth={1.5} />
+              {/* Header with Active Quantum Gyroscope Synthesis Engine & Telemetry */}
+              <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-white/[0.06]">
+                <div className="flex items-center gap-4">
+                  {/* Active Quantum Gyroscope Accelerating at High Frequency */}
+                  <div className="relative shrink-0">
+                    <QuantumGyroscopeNexus
+                      idPrefix="loader"
+                      size="w-12 h-12"
+                      dur1="1.8s"
+                      dur2="2.1s"
+                      dur3="2.4s"
+                      ambientGlow={true}
+                    />
                   </div>
 
                   {/* Dynamic Cognitive Thinking Stage */}
-                  <div className="space-y-0.5">
-                    <div className="text-xs font-mono text-indigo-200 font-medium transition-all duration-300">
+                  <div className="space-y-1">
+                    <div className="text-xs font-mono text-indigo-200 font-medium tracking-wide transition-all duration-300">
                       {getThinkingStage(elapsedSeconds)}
                     </div>
-                    <div className="text-[10px] font-mono text-zinc-500">
-                      Gemini 3.5 Flash • Active Generative Synthesis
+                    <div className="text-[11px] font-mono text-zinc-400 flex items-center gap-2">
+                      <span>Gemini 3.5 Flash</span>
+                      <span className="text-zinc-600">•</span>
+                      <span className="text-cyan-400/90 font-medium">Active Quantum Inference</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Live Stopwatch Badge with Pulsing Emerald Beacon */}
-                <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-black/60 border border-white/[0.08] backdrop-blur-md shrink-0 shadow-inner">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-[11px] font-mono text-zinc-300">{elapsedSeconds.toFixed(1)}s</span>
+                {/* Live Precision Stopwatch Badge with Pulsing Emerald Beacon */}
+                <div className="flex items-center gap-2 self-start sm:self-auto px-3 py-1.5 rounded-full bg-black/60 border border-white/[0.08] backdrop-blur-md shrink-0 shadow-inner">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34D399]" />
+                  <span className="text-xs font-mono text-zinc-200 font-semibold">{elapsedSeconds.toFixed(1)}s elapsed</span>
                 </div>
               </div>
 
               {/* Fluid Multi-Stage Wave Progress Bar */}
               <div className="relative z-10 h-1.5 w-full bg-white/[0.05] rounded-full overflow-hidden p-[0.5px]">
-                <div className="h-full rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 via-cyan-400 to-indigo-500 animate-fluid-gradient animate-shimmer" />
+                <div className="h-full rounded-full bg-gradient-to-r from-indigo-500 via-cyan-400 via-purple-500 to-indigo-500 animate-fluid-gradient" />
               </div>
 
               {/* Calming Tactile Wireframe Preview */}
@@ -819,15 +846,18 @@ export default function ChatStage({
                 <div className="h-4 w-3/5 bg-gradient-to-r from-white/[0.05] via-white/[0.02] to-white/[0.05] rounded-md animate-pulse" style={{ animationDelay: '200ms' }} />
                 
                 {/* Visual Skeleton Tiles Hinting at Incoming Diagram & Columns */}
-                <div className="grid grid-cols-3 gap-2 pt-2">
-                  <div className="h-12 rounded-xl bg-white/[0.02] border border-white/[0.04] animate-pulse flex items-center justify-center" style={{ animationDelay: '100ms' }}>
-                    <div className="w-12 h-2 rounded bg-white/[0.04]" />
+                <div className="grid grid-cols-3 gap-2.5 pt-2">
+                  <div className="h-14 rounded-xl bg-white/[0.02] border border-white/[0.04] animate-pulse flex flex-col justify-center px-3 space-y-1.5" style={{ animationDelay: '100ms' }}>
+                    <div className="w-12 h-2 rounded bg-indigo-500/20" />
+                    <div className="w-20 h-2 rounded bg-white/[0.04]" />
                   </div>
-                  <div className="h-12 rounded-xl bg-white/[0.02] border border-white/[0.04] animate-pulse flex items-center justify-center" style={{ animationDelay: '250ms' }}>
+                  <div className="h-14 rounded-xl bg-white/[0.02] border border-white/[0.04] animate-pulse flex flex-col justify-center px-3 space-y-1.5" style={{ animationDelay: '250ms' }}>
+                    <div className="w-14 h-2 rounded bg-cyan-500/20" />
+                    <div className="w-24 h-2 rounded bg-white/[0.04]" />
+                  </div>
+                  <div className="h-14 rounded-xl bg-white/[0.02] border border-white/[0.04] animate-pulse flex flex-col justify-center px-3 space-y-1.5" style={{ animationDelay: '400ms' }}>
+                    <div className="w-10 h-2 rounded bg-purple-500/20" />
                     <div className="w-16 h-2 rounded bg-white/[0.04]" />
-                  </div>
-                  <div className="h-12 rounded-xl bg-white/[0.02] border border-white/[0.04] animate-pulse flex items-center justify-center" style={{ animationDelay: '400ms' }}>
-                    <div className="w-10 h-2 rounded bg-white/[0.04]" />
                   </div>
                 </div>
               </div>
