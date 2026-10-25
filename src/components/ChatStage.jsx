@@ -97,34 +97,44 @@ function FloatingKineticNexus() {
           {/* ORBIT 1: Tilted -60° (Left Inclination) */}
           <g transform="rotate(-60 40 40)">
             {/* Guide Track */}
-            <ellipse cx="40" cy="40" rx="34" ry="13" stroke="url(#ringGrad1)" strokeWidth="1" strokeOpacity="0.25" />
-            {/* Luminous Sweep Stroke */}
-            <ellipse
-              cx="40"
-              cy="40"
-              rx="34"
-              ry="13"
+            <path
+              id="orbitTrack1"
+              d="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
+              pathLength="100"
               stroke="url(#ringGrad1)"
-              strokeWidth="1.8"
-              strokeDasharray="42 113"
-              strokeLinecap="round"
-              className="animate-orbit-dash-1"
+              strokeWidth="1"
+              strokeOpacity="0.25"
+              fill="none"
             />
-            {/* Realistically Orbiting Photon Particle */}
+            {/* Luminous Roaming Line trailing behind the head dot */}
+            <path
+              d="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
+              pathLength="100"
+              stroke="url(#ringGrad1)"
+              strokeWidth="2"
+              strokeDasharray="28 72"
+              strokeLinecap="round"
+              fill="none"
+            >
+              <animate
+                attributeName="stroke-dashoffset"
+                from="28"
+                to="-72"
+                dur="3.4s"
+                repeatCount="indefinite"
+              />
+            </path>
+            {/* Leading Photon Dot at Front Head */}
             <g>
-              <circle r="2.4" fill="#38BDF8" className="filter drop-shadow-[0_0_6px_#38BDF8]">
-                <animateMotion
-                  dur="3.4s"
-                  repeatCount="indefinite"
-                  path="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
-                />
+              <circle r="2.8" fill="#38BDF8" className="filter drop-shadow-[0_0_8px_#38BDF8]">
+                <animateMotion dur="3.4s" repeatCount="indefinite">
+                  <mpath href="#orbitTrack1" />
+                </animateMotion>
               </circle>
-              <circle r="1" fill="#FFFFFF">
-                <animateMotion
-                  dur="3.4s"
-                  repeatCount="indefinite"
-                  path="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
-                />
+              <circle r="1.2" fill="#FFFFFF">
+                <animateMotion dur="3.4s" repeatCount="indefinite">
+                  <mpath href="#orbitTrack1" />
+                </animateMotion>
               </circle>
             </g>
           </g>
@@ -132,34 +142,44 @@ function FloatingKineticNexus() {
           {/* ORBIT 2: Tilted 0° (Equatorial Horizontal Axis) */}
           <g transform="rotate(0 40 40)">
             {/* Guide Track */}
-            <ellipse cx="40" cy="40" rx="34" ry="13" stroke="url(#ringGrad2)" strokeWidth="1" strokeOpacity="0.25" />
-            {/* Luminous Sweep Stroke */}
-            <ellipse
-              cx="40"
-              cy="40"
-              rx="34"
-              ry="13"
+            <path
+              id="orbitTrack2"
+              d="M 6,40 a 34,13 0 1,1 68,0 a 34,13 0 1,1 -68,0"
+              pathLength="100"
               stroke="url(#ringGrad2)"
-              strokeWidth="1.8"
-              strokeDasharray="42 113"
-              strokeLinecap="round"
-              className="animate-orbit-dash-2"
+              strokeWidth="1"
+              strokeOpacity="0.25"
+              fill="none"
             />
-            {/* Realistically Orbiting Photon Particle */}
+            {/* Luminous Roaming Line trailing behind the head dot */}
+            <path
+              d="M 6,40 a 34,13 0 1,1 68,0 a 34,13 0 1,1 -68,0"
+              pathLength="100"
+              stroke="url(#ringGrad2)"
+              strokeWidth="2"
+              strokeDasharray="28 72"
+              strokeLinecap="round"
+              fill="none"
+            >
+              <animate
+                attributeName="stroke-dashoffset"
+                from="28"
+                to="-72"
+                dur="3.8s"
+                repeatCount="indefinite"
+              />
+            </path>
+            {/* Leading Photon Dot at Front Head */}
             <g>
-              <circle r="2.4" fill="#06B6D4" className="filter drop-shadow-[0_0_6px_#06B6D4]">
-                <animateMotion
-                  dur="3.8s"
-                  repeatCount="indefinite"
-                  path="M 74,40 a 34,13 0 1,0 -68,0 a 34,13 0 1,0 68,0"
-                />
+              <circle r="2.8" fill="#06B6D4" className="filter drop-shadow-[0_0_8px_#06B6D4]">
+                <animateMotion dur="3.8s" repeatCount="indefinite">
+                  <mpath href="#orbitTrack2" />
+                </animateMotion>
               </circle>
-              <circle r="1" fill="#FFFFFF">
-                <animateMotion
-                  dur="3.8s"
-                  repeatCount="indefinite"
-                  path="M 74,40 a 34,13 0 1,0 -68,0 a 34,13 0 1,0 68,0"
-                />
+              <circle r="1.2" fill="#FFFFFF">
+                <animateMotion dur="3.8s" repeatCount="indefinite">
+                  <mpath href="#orbitTrack2" />
+                </animateMotion>
               </circle>
             </g>
           </g>
@@ -167,34 +187,44 @@ function FloatingKineticNexus() {
           {/* ORBIT 3: Tilted +60° (Right Inclination) */}
           <g transform="rotate(60 40 40)">
             {/* Guide Track */}
-            <ellipse cx="40" cy="40" rx="34" ry="13" stroke="url(#ringGrad3)" strokeWidth="1" strokeOpacity="0.25" />
-            {/* Luminous Sweep Stroke */}
-            <ellipse
-              cx="40"
-              cy="40"
-              rx="34"
-              ry="13"
+            <path
+              id="orbitTrack3"
+              d="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
+              pathLength="100"
               stroke="url(#ringGrad3)"
-              strokeWidth="1.8"
-              strokeDasharray="42 113"
-              strokeLinecap="round"
-              className="animate-orbit-dash-3"
+              strokeWidth="1"
+              strokeOpacity="0.25"
+              fill="none"
             />
-            {/* Realistically Orbiting Photon Particle */}
+            {/* Luminous Roaming Line trailing behind the head dot */}
+            <path
+              d="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
+              pathLength="100"
+              stroke="url(#ringGrad3)"
+              strokeWidth="2"
+              strokeDasharray="28 72"
+              strokeLinecap="round"
+              fill="none"
+            >
+              <animate
+                attributeName="stroke-dashoffset"
+                from="28"
+                to="-72"
+                dur="4.2s"
+                repeatCount="indefinite"
+              />
+            </path>
+            {/* Leading Photon Dot at Front Head */}
             <g>
-              <circle r="2.4" fill="#C084FC" className="filter drop-shadow-[0_0_6px_#C084FC]">
-                <animateMotion
-                  dur="4.2s"
-                  repeatCount="indefinite"
-                  path="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
-                />
+              <circle r="2.8" fill="#C084FC" className="filter drop-shadow-[0_0_8px_#C084FC]">
+                <animateMotion dur="4.2s" repeatCount="indefinite">
+                  <mpath href="#orbitTrack3" />
+                </animateMotion>
               </circle>
-              <circle r="1" fill="#FFFFFF">
-                <animateMotion
-                  dur="4.2s"
-                  repeatCount="indefinite"
-                  path="M 6,40 a 34,13 0 1,0 68,0 a 34,13 0 1,0 -68,0"
-                />
+              <circle r="1.2" fill="#FFFFFF">
+                <animateMotion dur="4.2s" repeatCount="indefinite">
+                  <mpath href="#orbitTrack3" />
+                </animateMotion>
               </circle>
             </g>
           </g>

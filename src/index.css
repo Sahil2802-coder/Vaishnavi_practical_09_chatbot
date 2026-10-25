@@ -198,21 +198,6 @@ body {
   }
 }
 
-@keyframes orbitDash1 {
-  from { stroke-dashoffset: 0; }
-  to { stroke-dashoffset: -155; }
-}
-
-@keyframes orbitDash2 {
-  from { stroke-dashoffset: 0; }
-  to { stroke-dashoffset: 155; }
-}
-
-@keyframes orbitDash3 {
-  from { stroke-dashoffset: 0; }
-  to { stroke-dashoffset: -155; }
-}
-
 @keyframes nucleusPulse {
   0%, 100% {
     transform: scale(0.94);
@@ -228,32 +213,8 @@ body {
   animation: gyroFloat 4.5s ease-in-out infinite;
 }
 
-.animate-orbit-dash-1 {
-  animation: orbitDash1 3.4s linear infinite;
-}
-
-.animate-orbit-dash-2 {
-  animation: orbitDash2 3.8s linear infinite;
-}
-
-.animate-orbit-dash-3 {
-  animation: orbitDash3 4.2s linear infinite;
-}
-
 .animate-nucleus-pulse {
   animation: nucleusPulse 3s ease-in-out infinite;
-}
-
-.group:hover .animate-orbit-dash-1 {
-  animation-duration: 1.8s;
-}
-
-.group:hover .animate-orbit-dash-2 {
-  animation-duration: 2.0s;
-}
-
-.group:hover .animate-orbit-dash-3 {
-  animation-duration: 2.2s;
 }
 
 
