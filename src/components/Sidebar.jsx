@@ -57,10 +57,10 @@ export default function Sidebar({
       )}
 
       <aside
-        className={`fixed md:relative z-40 top-0 bottom-0 left-0 flex flex-col bg-[#11131A] border-r border-white/[0.07] shadow-2xl md:shadow-none transition-all duration-300 ease-in-out ${
+        className={`fixed md:relative z-40 top-0 bottom-0 left-0 bg-[#11131A] border-r border-white/[0.07] shadow-2xl md:shadow-none transition-all duration-300 ease-in-out ${
           isCollapsed
-            ? 'w-0 -translate-x-full md:w-16 md:translate-x-0'
-            : 'w-[84vw] max-w-[310px] md:w-[280px] translate-x-0'
+            ? 'hidden md:flex md:w-16 md:flex-col'
+            : 'flex flex-col w-[84vw] max-w-[310px] md:w-[280px]'
         }`}
       >
         {/* Sidebar Header */}
