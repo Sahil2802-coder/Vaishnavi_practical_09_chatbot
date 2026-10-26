@@ -46,53 +46,68 @@ export default function Sidebar({
   };
 
   return (
-    <aside
-      className={`fixed md:relative z-40 top-0 bottom-0 left-0 flex flex-col bg-[#11131A] border-r border-white/[0.07] transition-all duration-300 ease-in-out ${
-        isCollapsed ? 'w-0 -translate-x-full md:w-16 md:translate-x-0' : 'w-[280px] translate-x-0'
-      }`}
-    >
-      {/* Sidebar Header */}
-      <div className="flex items-center justify-between p-4 border-b border-white/[0.06] min-h-[64px]">
-        {!isCollapsed && (
-          <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-lg bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center">
-              <Cpu className="w-4 h-4 text-indigo-400" strokeWidth={1.5} />
-            </div>
-            <div>
-              <div className="text-sm font-semibold tracking-tight text-white">Nexus LLM Studio</div>
-              <div className="text-[10px] font-mono uppercase tracking-wider text-zinc-500">Practical No. 9</div>
-            </div>
-          </div>
-        )}
-
-        <button
-          onClick={() => setIsCollapsed(!isCollapsed)}
-          className="p-1.5 rounded-md hover:bg-white/[0.05] text-zinc-400 hover:text-white transition-colors"
-          title={isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
-        >
-          {isCollapsed ? (
-            <PanelLeftOpen className="w-4 h-4" strokeWidth={1.5} />
-          ) : (
-            <PanelLeftClose className="w-4 h-4" strokeWidth={1.5} />
-          )}
-        </button>
-      </div>
-
+    <>
+      {/* Mobile Backdrop Overlay (Closes drawer on outside tap) */}
       {!isCollapsed && (
-        <div className="flex-1 overflow-y-auto px-3 py-3 space-y-4">
-          {/* New Session Action */}
-          <button
-            onClick={onNewSession}
-            className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-zinc-200 hover:text-white text-xs font-medium transition-all group"
-          >
-            <div className="flex items-center gap-2">
-              <Plus className="w-4 h-4 text-indigo-400 group-hover:scale-110 transition-transform" strokeWidth={1.5} />
-              <span>New Session</span>
+        <div
+          onClick={() => setIsCollapsed(true)}
+          className="fixed inset-0 bg-black/75 backdrop-blur-sm z-30 md:hidden transition-opacity"
+          aria-hidden="true"
+        />
+      )}
+
+      <aside
+        className={`fixed md:relative z-40 top-0 bottom-0 left-0 flex flex-col bg-[#11131A] border-r border-white/[0.07] shadow-2xl md:shadow-none transition-all duration-300 ease-in-out ${
+          isCollapsed
+            ? 'w-0 -translate-x-full md:w-16 md:translate-x-0'
+            : 'w-[84vw] max-w-[310px] md:w-[280px] translate-x-0'
+        }`}
+      >
+        {/* Sidebar Header */}
+        <div className="flex items-center justify-between p-4 border-b border-white/[0.06] min-h-[64px]">
+          {!isCollapsed && (
+            <div className="flex items-center gap-2.5">
+              <div className="w-7 h-7 rounded-lg bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center">
+                <Cpu className="w-4 h-4 text-indigo-400" strokeWidth={1.5} />
+              </div>
+              <div>
+                <div className="text-sm font-semibold tracking-tight text-white">Nexus LLM Studio</div>
+                <div className="text-[10px] font-mono uppercase tracking-wider text-zinc-500">Practical No. 9</div>
+              </div>
             </div>
-            <kbd className="text-[10px] font-mono text-zinc-500 bg-black/40 px-1.5 py-0.5 rounded border border-white/[0.06]">
-              Cmd K
-            </kbd>
+          )}
+
+          <button
+            onClick={() => setIsCollapsed(!isCollapsed)}
+            className="p-1.5 rounded-md hover:bg-white/[0.05] text-zinc-400 hover:text-white transition-colors"
+            title={isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
+          >
+            {isCollapsed ? (
+              <PanelLeftOpen className="w-4 h-4" strokeWidth={1.5} />
+            ) : (
+              <PanelLeftClose className="w-4 h-4" strokeWidth={1.5} />
+            )}
           </button>
+        </div>
+
+        {!isCollapsed && (
+          <div className="flex-1 overflow-y-auto px-3 py-3 space-y-4">
+            {/* New Session Action */}
+            <button
+              onClick={() => {
+                onNewSession();
+                if (window.innerWidth < 768) setIsCollapsed(true);
+              }}
+              className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-zinc-200 hover:text-white text-xs font-medium transition-all group active:scale-[0.98]"
+            >
+              <div className="flex items-center gap-2">
+                <Plus className="w-4 h-4 text-indigo-400 group-hover:scale-110 transition-transform" strokeWidth={1.5} />
+                <span>New Session</span>
+              </div>
+              <kbd className="text-[10px] font-mono text-zinc-500 bg-black/40 px-1.5 py-0.5 rounded border border-white/[0.06]">
+                Cmd K
+              </kbd>
+            </button>
 
           {/* API Credentials Vault */}
           <div className="p-2.5 rounded-lg bg-black/30 border border-white/[0.05]">
@@ -164,8 +179,11 @@ export default function Sidebar({
                   return (
                     <button
                       key={tc.id}
-                      onClick={() => onRunTestCase(tc)}
-                      className="w-full flex items-center justify-between px-2.5 py-1.5 rounded-md bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.04] text-left transition-colors group"
+                      onClick={() => {
+                        onRunTestCase(tc);
+                        if (window.innerWidth < 768) setIsCollapsed(true);
+                      }}
+                      className="w-full flex items-center justify-between px-2.5 py-1.5 rounded-md bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.04] text-left transition-colors group active:scale-[0.98]"
                     >
                       <div className="flex items-center gap-2 overflow-hidden">
                         <span className="text-[10px] font-mono text-zinc-400 font-semibold">{tc.label}</span>
@@ -263,5 +281,6 @@ export default function Sidebar({
         </div>
       )}
     </aside>
+  </>
   );
 }

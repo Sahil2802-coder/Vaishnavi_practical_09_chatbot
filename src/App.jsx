@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { PanelLeft, Plus, Cpu } from 'lucide-react';
 import Sidebar from './components/Sidebar';
 import ChatStage from './components/ChatStage';
 import CommandBar from './components/CommandBar';
@@ -18,7 +19,12 @@ export default function App() {
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [loadingStep, setLoadingStep] = useState('');
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 768;
+    }
+    return false;
+  });
 
   const [testCaseStatuses, setTestCaseStatuses] = useState({
     'TC9.1': 'READY',
@@ -177,6 +183,36 @@ export default function App() {
 
       {/* Main Conversational Stage */}
       <main className="flex-1 flex flex-col relative overflow-hidden bg-[#090A0F]">
+        {/* Sleek Mobile Navigation Header (< 768px) */}
+        <header className="flex md:hidden items-center justify-between px-3 h-14 border-b border-white/[0.08] bg-[#0E1017]/95 backdrop-blur-xl z-20 shrink-0 select-none">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setIsSidebarCollapsed(false)}
+              className="p-2 -ml-1 rounded-lg text-zinc-300 hover:text-white hover:bg-white/[0.06] active:scale-95 transition-all"
+              title="Open Navigation Menu"
+            >
+              <PanelLeft className="w-5 h-5 text-indigo-400" strokeWidth={1.5} />
+            </button>
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-md bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center">
+                <Cpu className="w-3.5 h-3.5 text-indigo-400" strokeWidth={1.5} />
+              </div>
+              <span className="text-sm font-semibold tracking-tight text-white">Nexus Studio</span>
+              <span className="text-[10px] font-mono text-indigo-400/80 bg-indigo-500/10 px-1.5 py-0.5 rounded border border-indigo-500/20">P9</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handleNewSession}
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-xs text-zinc-200 font-medium active:scale-95 transition-all"
+            >
+              <Plus className="w-3.5 h-3.5 text-indigo-400" strokeWidth={1.5} />
+              <span>New</span>
+            </button>
+          </div>
+        </header>
+
         <ChatStage
           messages={messages}
           isLoading={isLoading}

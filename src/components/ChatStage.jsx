@@ -370,44 +370,44 @@ export default function ChatStage({
       ref={scrollContainerRef}
       className="flex-1 overflow-y-auto w-full h-full scroll-smooth"
     >
-      <div className="max-w-[880px] w-full mx-auto px-4 sm:px-8 pt-6 pb-36">
+      <div className="max-w-[880px] w-full mx-auto px-3 sm:px-8 pt-4 sm:pt-6 pb-44 sm:pb-36">
         {/* Zero-State Canvas */}
       {messages.length === 0 ? (
-        <div className="min-h-[70vh] flex flex-col justify-center items-center text-center">
-          {/* Frameless Floating Kinetic Nexus Gyroscope (Zero card, zero tab, purely floating) */}
+        <div className="min-h-[65vh] sm:min-h-[70vh] flex flex-col justify-center items-center text-center">
+          {/* Frameless Floating Kinetic Nexus Gyroscope */}
           <FloatingKineticNexus />
 
-          <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white mb-2">
+          <h1 className="text-xl sm:text-3xl font-semibold tracking-tight text-white mb-2 px-2">
             Ready to engineer your next query.
           </h1>
-          <p className="text-sm text-zinc-400 max-w-md mb-10 leading-relaxed">
+          <p className="text-xs sm:text-sm text-zinc-400 max-w-md mb-6 sm:mb-10 leading-relaxed px-4">
             Execute Question Answering, Text Summarization, and Sentiment Classification with real-time generative UI telemetry.
           </p>
 
           {/* 2x2 Bento Grid of Starter Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-2xl text-left">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 w-full max-w-2xl text-left">
             {starterCards.map((card, i) => {
               const Icon = card.icon;
               return (
                 <button
                   key={i}
                   onClick={() => onSelectStarter(card.tc)}
-                  className="spotlight-card rounded-xl p-4 flex flex-col justify-between group transition-all"
+                  className="spotlight-card rounded-xl p-3 sm:p-4 flex flex-col justify-between group transition-all active:scale-[0.98]"
                 >
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-zinc-400">
-                      <Icon className="w-3.5 h-3.5 text-indigo-400" strokeWidth={1.5} />
-                      <span>{card.title}</span>
+                  <div className="flex items-center justify-between mb-1.5 sm:mb-2">
+                    <div className="flex items-center gap-2 text-[11px] sm:text-xs font-mono uppercase tracking-wider text-zinc-400">
+                      <Icon className="w-3.5 h-3.5 text-indigo-400 shrink-0" strokeWidth={1.5} />
+                      <span className="truncate">{card.title}</span>
                     </div>
                     <ArrowUpRight
-                      className="w-4 h-4 text-zinc-500 group-hover:text-indigo-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+                      className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-zinc-500 group-hover:text-indigo-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 ml-1"
                       strokeWidth={1.5}
                     />
                   </div>
-                  <div className="text-sm text-zinc-200 group-hover:text-white line-clamp-2 font-normal mb-2">
+                  <div className="text-xs sm:text-sm text-zinc-200 group-hover:text-white line-clamp-2 font-normal mb-1.5 sm:mb-2 leading-relaxed">
                     {card.query}
                   </div>
-                  <div className="text-[11px] font-mono text-zinc-500">{card.meta}</div>
+                  <div className="text-[10px] sm:text-[11px] font-mono text-zinc-500">{card.meta}</div>
                 </button>
               );
             })}
@@ -415,7 +415,7 @@ export default function ChatStage({
         </div>
       ) : (
         /* Chat Message Stream */
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {(() => {
             const latestUserIdx = messages.map((m) => m.role).lastIndexOf('user');
             return messages.map((msg, idx) => (
@@ -427,17 +427,17 @@ export default function ChatStage({
               {msg.role === 'user' ? (
                 /* User Message Bubble */
                 <div className="flex justify-end">
-                  <div className="max-w-[85%] rounded-2xl px-4 py-3 bg-[#1A1F2C] border border-indigo-500/20 text-sm text-white shadow-lg leading-relaxed">
+                  <div className="max-w-[90%] sm:max-w-[85%] rounded-2xl px-3.5 py-2.5 sm:px-4 sm:py-3 bg-[#1A1F2C] border border-indigo-500/20 text-xs sm:text-sm text-white shadow-lg leading-relaxed break-words">
                     {msg.content}
                   </div>
                 </div>
               ) : (
                 /* Assistant Generative UI Bubble */
                 <div className="flex justify-start">
-                  <div className="w-full rounded-2xl p-5 bg-[#11131A] border border-white/[0.08] shadow-2xl space-y-4 animate-response-reveal">
+                  <div className="w-full rounded-2xl p-3.5 sm:p-5 bg-[#11131A] border border-white/[0.08] shadow-2xl space-y-4 animate-response-reveal overflow-hidden">
                     {/* Editorial Prose / Hero Text */}
                     {msg.payload?.hero_answer && (
-                      <div className="text-sm sm:text-[15px] text-zinc-200 leading-relaxed font-normal animate-sub-reveal">
+                      <div className="text-xs sm:text-[15px] text-zinc-200 leading-relaxed font-normal animate-sub-reveal">
                         {msg.payload.hero_answer}
                       </div>
                     )}
@@ -473,8 +473,8 @@ export default function ChatStage({
                             <div className="px-3.5 py-2 border-b border-white/[0.06] bg-white/[0.02] text-[11px] font-mono uppercase tracking-wider text-zinc-400">
                               Architectural Dimensions & Impact Matrix
                             </div>
-                            <div className="overflow-x-auto">
-                              <table className="w-full text-left text-xs font-sans">
+                            <div className="overflow-x-auto touch-pan-x">
+                              <table className="w-full text-left text-xs font-sans min-w-[420px]">
                                 <thead>
                                   <tr className="border-b border-white/[0.06] text-zinc-400 bg-white/[0.01]">
                                     <th className="py-2.5 px-3.5 font-medium">Dimension</th>
@@ -576,24 +576,26 @@ export default function ChatStage({
                             <div className="px-3.5 py-2 border-b border-white/[0.06] bg-white/[0.02] text-[11px] font-mono uppercase tracking-wider text-zinc-400">
                               Domain Impact Breakdown
                             </div>
-                            <table className="w-full text-left text-xs font-sans">
-                              <thead>
-                                <tr className="border-b border-white/[0.06] text-zinc-400 bg-white/[0.01]">
-                                  <th className="py-2.5 px-3.5 font-medium">Domain</th>
-                                  <th className="py-2.5 px-3.5 font-medium">Transformative Impact</th>
-                                </tr>
-                              </thead>
-                              <tbody className="divide-y divide-white/[0.04]">
-                                {msg.payload.domain_impact_table.map((row, i) => (
-                                  <tr key={i} className="hover:bg-white/[0.02] transition-colors">
-                                    <td className="py-2.5 px-3.5 font-medium text-emerald-300 whitespace-nowrap">
-                                      {row.Domain}
-                                    </td>
-                                    <td className="py-2.5 px-3.5 text-zinc-300">{row.Impact}</td>
+                            <div className="overflow-x-auto touch-pan-x">
+                              <table className="w-full text-left text-xs font-sans min-w-[360px]">
+                                <thead>
+                                  <tr className="border-b border-white/[0.06] text-zinc-400 bg-white/[0.01]">
+                                    <th className="py-2.5 px-3.5 font-medium">Domain</th>
+                                    <th className="py-2.5 px-3.5 font-medium">Transformative Impact</th>
                                   </tr>
-                                ))}
-                              </tbody>
-                            </table>
+                                </thead>
+                                <tbody className="divide-y divide-white/[0.04]">
+                                  {msg.payload.domain_impact_table.map((row, i) => (
+                                    <tr key={i} className="hover:bg-white/[0.02] transition-colors">
+                                      <td className="py-2.5 px-3.5 font-medium text-emerald-300 whitespace-nowrap">
+                                        {row.Domain}
+                                      </td>
+                                      <td className="py-2.5 px-3.5 text-zinc-300">{row.Impact}</td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
                           </div>
                         )}
                       </div>
@@ -659,15 +661,15 @@ export default function ChatStage({
                                 </ResponsiveContainer>
                               </div>
 
-                              <div className="flex-1 grid grid-cols-3 gap-2 w-full">
+                              <div className="flex-1 grid grid-cols-3 gap-1.5 sm:gap-2 w-full">
                                 {[
                                   { label: 'Positive', val: msg.payload.confidence_scores.Positive || 0, color: 'text-emerald-400' },
                                   { label: 'Neutral', val: msg.payload.confidence_scores.Neutral || 0, color: 'text-amber-400' },
                                   { label: 'Negative', val: msg.payload.confidence_scores.Negative || 0, color: 'text-rose-400' },
                                 ].map((item) => (
-                                  <div key={item.label} className="p-2.5 rounded-lg bg-black/40 border border-white/[0.04] text-center">
-                                    <div className="text-[10px] font-mono text-zinc-400">{item.label}</div>
-                                    <div className={`text-base font-mono font-bold ${item.color} mt-0.5`}>
+                                  <div key={item.label} className="p-1.5 sm:p-2.5 rounded-lg bg-black/40 border border-white/[0.04] text-center">
+                                    <div className="text-[9px] sm:text-[10px] font-mono text-zinc-400">{item.label}</div>
+                                    <div className={`text-sm sm:text-base font-mono font-bold ${item.color} mt-0.5`}>
                                       {item.val}%
                                     </div>
                                   </div>
@@ -680,48 +682,50 @@ export default function ChatStage({
                         {/* Aspect-Level Polarity Table */}
                         {msg.payload?.aspect_breakdown?.length > 0 && (
                           <div className="rounded-xl border border-white/[0.08] overflow-hidden bg-white/[0.01]">
-                            <div className="px-3.5 py-2 border-b border-white/[0.06] bg-white/[0.02] text-[11px] font-mono uppercase tracking-wider text-zinc-400">
+                            <div className="px-3 sm:px-3.5 py-2 border-b border-white/[0.06] bg-white/[0.02] text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-zinc-400">
                               Aspect-Level Feature Breakdown
                             </div>
-                            <table className="w-full text-left text-xs font-sans">
-                              <thead>
-                                <tr className="border-b border-white/[0.06] text-zinc-400 bg-white/[0.01]">
-                                  <th className="py-2.5 px-3.5 font-medium">Feature</th>
-                                  <th className="py-2.5 px-3.5 font-medium">Extracted Phrase</th>
-                                  <th className="py-2.5 px-3.5 font-medium">Polarity</th>
-                                  <th className="py-2.5 px-3.5 font-medium">Confidence</th>
-                                </tr>
-                              </thead>
-                              <tbody className="divide-y divide-white/[0.04]">
-                                {msg.payload.aspect_breakdown.map((row, i) => (
-                                  <tr key={i} className="hover:bg-white/[0.02] transition-colors">
-                                    <td className="py-2.5 px-3.5 font-medium text-zinc-200">{row.Aspect}</td>
-                                    <td className="py-2.5 px-3.5 text-zinc-400 italic">"{row.Extracted_Phrase}"</td>
-                                    <td className="py-2.5 px-3.5">
-                                      <span
-                                        className={`inline-block px-1.5 py-0.5 rounded text-[10px] font-mono uppercase font-semibold ${
-                                          row.Polarity === 'Positive'
-                                            ? 'text-emerald-400 bg-emerald-500/10'
-                                            : row.Polarity === 'Negative'
-                                            ? 'text-rose-400 bg-rose-500/10'
-                                            : 'text-amber-400 bg-amber-500/10'
-                                        }`}
-                                      >
-                                        {row.Polarity}
-                                      </span>
-                                    </td>
-                                    <td className="py-2.5 px-3.5 font-mono text-zinc-300">{row.Confidence}%</td>
+                            <div className="overflow-x-auto touch-pan-x">
+                              <table className="w-full text-left text-xs font-sans min-w-[420px]">
+                                <thead>
+                                  <tr className="border-b border-white/[0.06] text-zinc-400 bg-white/[0.01]">
+                                    <th className="py-2.5 px-3 font-medium">Feature</th>
+                                    <th className="py-2.5 px-3 font-medium">Extracted Phrase</th>
+                                    <th className="py-2.5 px-3 font-medium">Polarity</th>
+                                    <th className="py-2.5 px-3 font-medium">Confidence</th>
                                   </tr>
-                                ))}
-                              </tbody>
-                            </table>
+                                </thead>
+                                <tbody className="divide-y divide-white/[0.04]">
+                                  {msg.payload.aspect_breakdown.map((row, i) => (
+                                    <tr key={i} className="hover:bg-white/[0.02] transition-colors">
+                                      <td className="py-2 px-3 font-medium text-zinc-200">{row.Aspect}</td>
+                                      <td className="py-2 px-3 text-zinc-400 italic">"{row.Extracted_Phrase}"</td>
+                                      <td className="py-2 px-3">
+                                        <span
+                                          className={`inline-block px-1.5 py-0.5 rounded text-[10px] font-mono uppercase font-semibold ${
+                                            row.Polarity === 'Positive'
+                                              ? 'text-emerald-400 bg-emerald-500/10'
+                                              : row.Polarity === 'Negative'
+                                              ? 'text-rose-400 bg-rose-500/10'
+                                              : 'text-amber-400 bg-amber-500/10'
+                                          }`}
+                                        >
+                                          {row.Polarity}
+                                        </span>
+                                      </td>
+                                      <td className="py-2 px-3 font-mono text-zinc-300">{row.Confidence}%</td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
                           </div>
                         )}
                       </div>
                     )}
 
                     {/* Message Action Footer */}
-                    <div className="flex items-center justify-between pt-3 border-t border-white/[0.06] mt-2">
+                    <div className="flex items-center justify-between pt-3 border-t border-white/[0.06] mt-2 gap-2 flex-wrap sm:flex-nowrap">
                       <div className="flex items-center gap-1.5">
                         <button
                           onClick={() => handleCopy(msg.content || JSON.stringify(msg.payload), idx)}

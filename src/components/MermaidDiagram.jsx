@@ -54,14 +54,14 @@ export default function MermaidDiagram({ code }) {
 
   return (
     <div className="my-4 rounded-xl border border-white/[0.08] bg-[#11131A] overflow-hidden">
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
+      <div className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
         <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
-          <GitBranch className="w-3.5 h-3.5 text-indigo-400" strokeWidth={1.5} />
-          <span className="uppercase tracking-wider">Concept Architecture</span>
+          <GitBranch className="w-3.5 h-3.5 text-indigo-400 shrink-0" strokeWidth={1.5} />
+          <span className="uppercase tracking-wider text-[11px] sm:text-xs">Concept Architecture</span>
         </div>
         <button
           onClick={handleCopy}
-          className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono text-zinc-400 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] rounded-md transition-colors"
+          className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1 text-xs font-mono text-zinc-400 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] rounded-md transition-colors"
         >
           {copied ? (
             <>
@@ -77,7 +77,7 @@ export default function MermaidDiagram({ code }) {
         </button>
       </div>
 
-      <div className="p-4 flex items-center justify-center overflow-x-auto min-h-[220px]">
+      <div className="p-3 sm:p-4 flex items-center justify-start sm:justify-center overflow-x-auto touch-pan-x min-h-[180px] sm:min-h-[220px]">
         {error ? (
           <div className="text-xs font-mono text-rose-400 bg-rose-500/10 px-3 py-2 rounded-lg border border-rose-500/20">
             {error}
@@ -85,7 +85,7 @@ export default function MermaidDiagram({ code }) {
         ) : svgContent ? (
           <div
             ref={containerRef}
-            className="w-full flex justify-center [&>svg]:max-w-full [&>svg]:h-auto"
+            className="w-full flex justify-start sm:justify-center min-w-[340px] sm:min-w-0 [&>svg]:max-w-none sm:[&>svg]:max-w-full [&>svg]:h-auto"
             dangerouslySetInnerHTML={{ __html: svgContent }}
           />
         ) : (
